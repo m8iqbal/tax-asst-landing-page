@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { useState } from "react";
 
 export default function Home() {
@@ -7,79 +7,95 @@ export default function Home() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Connect to backend or service like Formspree
+    // TODO: Connect to backend/email service
     setSubmitted(true);
   };
 
   return (
-    <main className="min-h-screen bg-white text-gray-800 px-6 py-12">
-      <section className="max-w-4xl mx-auto text-center">
-        <h1 className="text-4xl font-bold tracking-tight mb-4">
-          Stay Compliant. File Smart.
-        </h1>
-        <p className="text-xl mb-6 text-gray-600">
-          Your UAE corporate tax assistant — built for SMEs, Free Zones, and
-          finance teams.
-        </p>
-
-        {submitted ? (
-          <p className="text-green-600 font-medium text-lg">
-            🎉 You're on the waitlist! We'll be in touch soon.
+    <main className="bg-gradient-to-b from-white to-gray-50 min-h-screen text-gray-800">
+      <header className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="md:w-1/2">
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
+            UAE Corporate Tax. Automated.
+          </h1>
+          <p className="text-lg text-gray-600 mb-6">
+            AI-powered tax assistant that helps you prepare, optimize, and file your UAE corporate tax — no guesswork, no penalties.
           </p>
-        ) : (
-          <form onSubmit={handleSubmit} className="flex justify-center gap-4">
-            <input
-              type="email"
-              required
-              placeholder="Enter your email"
-              className="px-4 py-2 rounded-xl border w-full max-w-md"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <button
-              type="submit"
-              className="bg-black text-white px-6 py-2 rounded-xl hover:bg-gray-900 transition"
+
+          {submitted ? (
+            <p className="text-green-600 font-semibold text-lg">🎉 You're on the waitlist!</p>
+          ) : (
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-4">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full sm:w-auto flex-grow px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+              />
+              <button
+                type="submit"
+                className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition"
+              >
+                Join Waitlist
+              </button>
+            </form>
+          )}
+        </div>
+
+        <div className="md:w-1/2">
+          <img
+            src="/placeholder-illustration.svg"
+            alt="Illustration of UAE tax assistant"
+            className="w-full max-w-md mx-auto"
+          />
+        </div>
+      </header>
+
+      <section className="bg-white py-16 px-6">
+        <div className="max-w-6xl mx-auto text-center mb-12">
+          <h2 className="text-3xl font-semibold">Why Businesses Use Us</h2>
+          <p className="text-gray-600 mt-2">Built for UAE tax compliance from the ground up.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {[
+            {
+              title: "📊 Real-time Tax Insights",
+              text: "Instantly calculate your tax liability with UAE-specific thresholds and exemptions.",
+            },
+            {
+              title: "📁 Filing-Ready Output",
+              text: "Download reports, tax returns, and audit trails pre-formatted for submission.",
+            },
+            {
+              title: "🧠 AI Tax Assistant",
+              text: "Get suggestions, alerts, and optimization tips as you prepare your return.",
+            },
+          ].map((f, i) => (
+            <div
+              key={i}
+              className="bg-gray-50 p-6 rounded-2xl shadow-sm hover:shadow-md transition"
             >
-              Join Waitlist
-            </button>
-          </form>
-        )}
+              <h3 className="text-lg font-semibold mb-2">{f.title}</h3>
+              <p className="text-sm text-gray-600">{f.text}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
-      <section className="mt-16 max-w-4xl mx-auto grid md:grid-cols-3 gap-6 text-left">
-        {[
-          {
-            title: "📊 Real-time Tax Estimation",
-            text: "Upload Excel or sync with Xero to see what you owe instantly — including Small Business Relief logic.",
-          },
-          {
-            title: "📁 FTA-Ready Reports",
-            text: "Generate ready-to-file tax returns, summary reports, and adjustment breakdowns in seconds.",
-          },
-          {
-            title: "🧠 Smart Compliance Alerts",
-            text: "Get notified when something in your books violates UAE tax rules — before it becomes a problem.",
-          },
-        ].map((f, i) => (
-          <div key={i} className="p-4 border rounded-2xl shadow-sm bg-gray-50">
-            <h3 className="text-lg font-semibold mb-2">{f.title}</h3>
-            <p className="text-gray-600 text-sm">{f.text}</p>
-          </div>
-        ))}
+      <section className="py-20 px-6 bg-gradient-to-r from-[#f8fafc] to-[#e2e8f0] text-center">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">Made for Small Businesses & Tax Professionals Alike</h2>
+          <p className="text-gray-700 text-lg">
+            Whether you’re managing one Free Zone company or a portfolio of clients — we make corporate tax filing simple, accurate, and stress-free.
+          </p>
+        </div>
       </section>
 
-      <section className="mt-24 text-center">
-        <h2 className="text-2xl font-bold mb-2">Who’s This For?</h2>
-        <p className="text-gray-600 mb-4">
-          SMEs, Free Zone companies, freelancers, and tax agents across the UAE.
-        </p>
-        <p className="text-gray-500 text-sm">
-          No accounting software? No problem. You can upload Excel.
-        </p>
-      </section>
-
-      <footer className="mt-20 text-center text-sm text-gray-400">
-        © {new Date().getFullYear()} UAE Tax Assistant. All rights reserved.
+      <footer className="text-center py-10 text-sm text-gray-500">
+        © {new Date().getFullYear()} UAE Tax Assistant. Built with ❤️ in the Emirates.
       </footer>
     </main>
   );
