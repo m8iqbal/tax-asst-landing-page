@@ -1,4 +1,4 @@
-// app/page.tsx (Next.js 13+ App Router)
+"use client";
 import { useState } from "react";
 
 export default function Home() {
