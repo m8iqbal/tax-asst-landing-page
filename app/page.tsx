@@ -1,4 +1,3 @@
-// app/page.tsx
 'use client';
 import { useState } from 'react';
 
@@ -9,21 +8,18 @@ export default function Home() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    // Hook up backend/integration later
   };
 
   return (
     <main className="bg-white text-gray-900 font-sans">
-      {/* HERO */}
-      <section className="bg-gradient-to-br from-white via-gray-50 to-gray-100">
-        <div className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Text Section */}
+      <section className="bg-gradient-to-br from-white via-gray-50 to-gray-100 py-12 md:py-12">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              Automate Your UAE Corporate Tax Filing
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
+              Automate UAE Corporate Tax Filing
             </h1>
-            <p className="text-lg text-gray-600 mb-6">
-              Built for SMEs, Free Zone entities & accountants. Upload your financials, get your return ready — fully FTA-aligned.
+            <p className="text-base sm:text-lg text-gray-600 mb-5">
+              For SMEs, Free Zone entities & accountants. Upload your financials, get your return — FTA-ready.
             </p>
             {!submitted ? (
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
@@ -49,38 +45,35 @@ export default function Home() {
             )}
           </div>
 
-          {/* Image */}
-          <div className="flex justify-center">
+          <div className="flex justify-center md:justify-end">
             <img
-              src="/uae-tax-illustration.svg" // Add your custom SVG or illustration here
+              src="/uae-tax-illustration.svg"
               alt="Tax Filing Assistant"
-              className="w-full max-w-md"
+              className="w-full max-w-sm md:max-w-md"
             />
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4">Why Businesses Love It</h2>
-          <p className="text-gray-600 mb-12 text-lg">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Why Businesses Love It</h2>
+          <p className="text-gray-600 mb-10 text-base sm:text-lg">
             Smart, simple, and stress-free UAE corporate tax compliance.
           </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 title: '📊 Real-time Tax Insights',
-                text: 'Get instant tax projections with exemption thresholds, Free Zone logic, and Small Business Relief.',
+                text: 'Instant tax projections with Free Zone logic and Small Business Relief.',
               },
               {
                 title: '📁 FTA-Ready Output',
-                text: 'Download fully formatted tax return summaries, adjustments, and supporting documents.',
+                text: 'Download formatted tax return summaries and supporting docs.',
               },
               {
                 title: '🧠 Built-In Compliance Assistant',
-                text: 'We flag risky expenses, auto-adjust your return, and help you avoid penalties — year-round.',
+                text: 'We flag risky expenses and help you avoid penalties — year-round.',
               },
             ].map((f, i) => (
               <div
@@ -95,13 +88,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="bg-gradient-to-r from-gray-100 to-gray-200 py-16 px-6 text-center">
+      <section className="bg-gradient-to-r from-gray-100 to-gray-200 py-14 px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Be among the first to simplify your UAE tax filing.
           </h2>
-          <p className="text-gray-700 text-lg mb-6">
+          <p className="text-gray-700 text-base sm:text-lg mb-6">
             Join the early access list for discounts and priority onboarding.
           </p>
           {!submitted && (
@@ -125,8 +117,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="text-center py-10 text-sm text-gray-500">
+      <footer className="text-center py-8 text-sm text-gray-500">
         © {new Date().getFullYear()} UAE Tax Assistant — Built for compliance & simplicity.
       </footer>
     </main>

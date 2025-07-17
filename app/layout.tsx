@@ -1,10 +1,8 @@
-// app/layout.tsx
 import './globals.css';
-import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'UAE Tax Assistant',
-  description: 'Automated corporate tax filing for UAE businesses',
+  description: 'Automated UAE Corporate Tax Filing Landing Page',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
