@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="bg-gradient-to-b from-white to-gray-50 min-h-screen text-gray-800">
       <header className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between items-center gap-8">
-        <div className="md:w-1/2">
+        <div className="flex-1 md:pr-8">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
             UAE Corporate Tax. Automated.
           </h1>
@@ -44,7 +44,7 @@ export default function Home() {
           )}
         </div>
 
-        <div className="md:w-1/2">
+        <div className="flex-1">
           <img
             src="/placeholder-illustration.svg"
             alt="Illustration of UAE tax assistant"
