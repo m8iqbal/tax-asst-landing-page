@@ -1,16 +1,25 @@
+
 'use client';
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [source, setSource] = useState('');
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const utm = params.get('utm_source');
+    if (utm) setSource(utm);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const res = await fetch('/api/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({ email, source }),
     });
 
     if (res.ok) {
@@ -40,6 +49,7 @@ export default function Home() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              <input type="hidden" name="source" value={source} />
               <button
                 type="submit"
                 className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition"
@@ -106,6 +116,7 @@ export default function Home() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              <input type="hidden" name="source" value={source} />
               <button
                 type="submit"
                 className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition"
